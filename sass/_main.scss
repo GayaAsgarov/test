@@ -1,0 +1,71 @@
+body{
+    background: rgb(72, 147, 209);
+    font-family: sans-serif;
+}
+
+.container{
+    width: 500px;
+    margin: auto;
+    margin-top: 200px;
+    .new-task{
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        input{
+            height: 35px;
+            width: 350px;
+            border: 2px solid rgb(196, 193, 193);
+            border-radius: 10px;
+            outline: none;
+            padding-left: 10px;
+            font-size: 18px;
+            color: rgb(117, 116, 116);
+        }
+        button{
+            height: 41px;
+            width: 60px;
+            margin-left: 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background-color: rgb(72, 147, 209);
+            cursor: pointer;
+            &:hover{
+                opacity: 0.5;
+                transition: .3s;
+            }
+        }
+    }
+    .tasks{
+        width: 500px;
+        background-color: #fff;
+        margin-top: 40px;
+        border-radius: 5px;
+        padding-bottom: 40px;
+        .task{
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 15px;
+            border-bottom: 1px solid rgb(196, 197, 196);
+            .taskName{
+                font-size: 20px;
+                cursor: pointer;
+            }
+            button{
+                width: 40px;
+                height: 30px;
+                background-color: rgb(72, 147, 209);
+                border: none;
+                border-radius: 5px;
+                color: #fff;
+                font-size: 20px;
+                cursor: pointer;
+                &:hover{
+                    opacity: .6;
+                }
+            }
+        }
+    }
+}

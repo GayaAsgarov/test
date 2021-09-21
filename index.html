@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My To Do List</title>
+    <link rel="stylesheet" href="sass/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="new-task">
+            <input type="text" placeholder="Enter Task..." id="myInput">
+            <button id="addBtn">Add</button>
+        </div>
+        <div class="tasks">
+
+        </div>
+    </div>
+
+    <script>
+        const input = document.getElementById("myInput");
+        const addBtn = document.getElementById("addBtn");
+
+        function checkInput(){
+            if(input.value.length == 0){
+                alert("Please, Enter Task ...");
+            }
+        }
+
+        function addToTasks(){
+            const task = document.createElement("div");
+            task.setAttribute("class","task");
+            document.getElementsByClassName("tasks")[0].appendChild(task);
+            const taskName = document.createElement("div");
+            taskName.setAttribute("class","taskName");
+            task.appendChild(taskName);
+            const deleteBtn = document.createElement("button");
+            deleteBtn.setAttribute("class","delete");
+            task.appendChild(deleteBtn);
+            const deleteIcon = document.createElement("i");
+            deleteIcon.setAttribute("id","deleteIcon");
+            deleteIcon.setAttribute("class","fas fa-trash-alt")
+            deleteBtn.appendChild(deleteIcon);
+            taskName.innerHTML = input.value;
+        }
+        
+         function clearInput(){
+             input.value = "";
+         }
+
+        addBtn.onclick = function(){
+            checkInput();
+            addToTasks();
+
+            var tasknames = document.getElementsByClassName("taskName");
+            for(let j=0;j<tasknames.length;j++){
+                tasknames[j].onclick = function(){
+                    this.style.color = 'green';
+                    this.style.textDecoration = 'line-through';
+                }
+            }
+
+            var currentTasks = document.getElementsByClassName('delete');
+            for(let i=0;i<currentTasks.length;i++){
+                currentTasks[i].onclick = function(){
+                    document.getElementsByClassName('task')[i].remove(this);
+                }
+            }
+            clearInput();
+        }       
+    </script>
+</body>
+</html>
